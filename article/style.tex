@@ -1,0 +1,343 @@
+% 导入包
+\usepackage{hologo}  % LOGO
+%%% 数学公式
+\usepackage{amsmath,amsxtra}  % AMS
+\usepackage{bm}  % 加粗符号
+\usepackage{cases}  % 行编号数学环境
+\usepackage{extarrows}  % 可延长箭头
+\usepackage{mathtools}  % 数学公式
+\usepackage{mhchem}  % 化学公式包  \ce
+\usepackage{ntheorem}  % 获取数学模式的内容
+\usepackage{upgreek}  % 直立希腊字母
+\usepackage{xfrac}  % 行内除法 \sfrac
+%%% 环境设置
+\usepackage{caption} % 标题
+\usepackage{subcaption}  % 子标题
+\usepackage{float}  % 浮动控制
+\usepackage{wrapfig}  % 环绕排版
+%%% 表格
+\usepackage{multirow,multicol}  % 跨行、跨列
+\usepackage{rotating,makecell}  % 控制表头
+\usepackage{diagbox}  % 表头斜线
+\usepackage{array,tabularx}  % 定宽表
+\usepackage{longtable}  % 长表
+\usepackage{threeparttable}  % 三线表
+%%% 图片
+\usepackage{graphicx}  % 插图
+\usepackage{lscape}  % 页面旋转
+%%% 定理
+\usepackage{natbib}  % 文献格式
+\usepackage{enumerate}  % 列表格式, P105
+\usepackage{theorem}  % 定理格式, P107
+%%% 算法
+\usepackage[ruled]{algorithm2e}
+%%% 参考文献
+\usepackage{cite}
+%%% 绘图
+\usepackage[all,pdf]{xy}
+\usepackage{tikz}
+\usepackage{siunitx}
+%%% 字体
+\usepackage[math-style=ISO]{unicode-math}  % 数学字体
+\usepackage{fontspec}  % 西文字体
+%%% 基础格式
+\usepackage{ctex,xeCJK}  % 中文环境
+\usepackage{fancyhdr}  % 页眉页脚
+\usepackage{geometry}  % 页边距
+\usepackage{tocloft}  % 目录格式
+%%% 字体格式: rm,sf,tt|bf(default),up,it,sl,sc
+%%% 字号: big(default),medium,small,tiny
+%%% 对齐方式: raggedright(default),center,raggedleft
+\usepackage[raggedright]{titlesec}  % 章节格式
+\usepackage{chngcntr}  % 取消章节关联
+\usepackage{ragged2e}  % 段落格式
+\usepackage{shapepar}  % 段落形状
+\usepackage{nameref}  % 名称引用
+\usepackage{color,xcolor}  % 色彩
+\usepackage{hyperref}  % 链接、信息
+% \usepackage{tocbibind}  % 为目录、参考文献和索引生成目录项
+% \usepackage{bookmark} % 书签
+% \usepackage{layout}  % 显示当前页面布局: \layout{}
+% \usepackage{showframe}  % 标记出页面布局
+
+
+
+
+
+% 定义数学符号
+\DeclareMathOperator{\dif}{d\!}  % 积分d符号
+\newcommand{\degree}{^\circ}  % 角度
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+
+
+
+
+% 字体设置
+%%% 数学字体
+\setmathfont{STIX Two Math}
+% \setmathfont{Asana Math}
+% \setmathfont{XITS Math}
+% \setmathfont{TeX Gyre Schola Math}
+% \setmathfont{TeX Gyre Pagella Math}
+% \setmathfont{TeX Gyre Termes Math}
+%%% 西文字体
+\setmainfont{Source Code Pro}
+% \setmainfont{Fira Code}
+% \setmainfont{Times New Roman}
+% \setmainfont{Courier New}
+%%% 中文字体
+\setCJKmainfont{Source Han Serif CN}  % 思源宋体
+% \setCJKmainfont{Source Han Sans CN}  % 思源黑体
+% \setCJKmainfont{Source Han Sans HW SC}  % 思源黑体等宽
+% \setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}  % 宋体
+
+
+
+
+
+% 页边距
+\geometry{left=2.8cm,right=2.8cm,top=2.25cm,bottom=2.25cm}  % 上下左右边距设置
+% \geometry{scale=0.8, centering}  % 比例设置
+
+
+
+
+
+% default 风格页眉页脚
+%%% - empty: 没有页眉页脚
+%%% - fancy: 使用 fancyhdr 风格页眉页脚 (需要宏包 fancyhdr)
+%%% - plain: 没有页眉, 页脚是居中的页码 (report,article)
+%%% - headings: 没有页脚, 页眉是章节名称与页码 (book,ctex)
+%%% - myheadings: 没有页脚, 页眉是页码和用户自定义内容
+\pagestyle{plain}
+% \markright{content}  % 单面文档修改页眉内容
+% \markboth{left_content}{right_content}  % 双面文档分别修改左边与右边页眉内容
+
+
+% fancyhdr 风格页眉页脚
+%%% 设置
+% \lhead{content}  % 设置页眉左
+% \chead{content}  % 设置页眉中
+% \rhead{content}  % 设置页眉右
+% \lfoot{content}  % 设置页脚左
+% \cfoot{content}  % 设置页脚中
+% \rfoot{content}  % 设置页脚右
+%%% E(偶数页), O(奇数页), L(左), C(中), R(右), H(页眉), F(页脚)
+% \fancyhead[place]{content}  % 设置页眉, E/O 与 LCR 组合
+% \fancyfoot[place]{content}  % 设置页脚, E/O 与 LCR 组合
+% \fancyhf[place]{content}  % 设置页眉页脚, H/F 与 E/O 与 LCR 组合, 没有内容则会清空指定位置的内容
+%%% 页眉页脚线
+% \renewcommand{\headrulewidth}{0.4pt}  % 页眉线宽度, 默认为 0.4pt
+% \renewcommand{\footrulewidth}{0.0pt}  % 页脚线宽度, 默认0pt
+
+
+
+
+
+% 章节格式
+%%% titleformat{标题}{整体格式}{编号}{间隔}{标题}, e.g.:
+% \titleformat{\section}{\center\bfseries}{\Large\S\arabic{section}}{2em}{\LARGE}
+
+
+% 日期格式 (ctex)
+% \CTEXoptions[today=small]  % 2014年4月6日, 默认
+% \CTEXoptions[today=big]  % 二〇一四年四月六日
+% \CTEXoptions[today=old]  % April 6, 2014
+
+
+
+
+
+% 目录深度
+% \setcounter{secnumdepth}{3}  % 设置编号层级, 默认值为3
+% \setcounter{tocdepth}{3}  % 设置目录层级, 默认值为3
+
+
+% 目录名称
+% \renewcommand{\contentsname}{Contents}  % 目录名称
+% \renewcommand{\listfigurename}{Figure Contents}  % 图目录名称
+% \renewcommand{\listtablename}{Table Contents}  % 表目录名称
+% \renewcommand{\listoflistingscaption}{Code Contents} % 源码目录名称
+% \renewcommand{\refname}{Reference}  % 修改参考文献名称
+% \renewcommand{\abstractname}{Abstract}  % 修改摘要名称
+
+
+% 生成 contents 与 title (in document)
+%%% Roman(大写罗马数字), roman(小写罗马数字), arabic(数字), Alph(大写字母), alph(小写字母), fnsymbol(符号)
+% \pagenumbering{arabic} % 页码格式
+% \tableofcontents % 目录
+% \listoftables % 表目录
+% \listoffigures % 图目录
+% \listoflistings % 代码目录
+% \newpage
+% \pagenumbering{Roman}
+
+
+
+
+
+% 标题格式
+%%% \captionsetup[环境]{参数}
+%%% - format:  多行标题显示, plain(default)/hang
+%%% - labelformat: 标签编号格式, simple(default)/empty/brace/parens
+%%% - labelsep: 标签空格格式, colon(default)/none/period/space/quad/newline/endash
+%%% - justified: 对齐方式
+%%% - font: 字体格式
+%%% - 标题名称: e.g. thetablename
+
+
+% 标题名称
+% \renewcommand{\indexname}{Index}  % 索引
+% \renewcommand{\tablename}{Table}  % 表
+% \renewcommand{\figurename}{Figure}  % 图
+% \renewcommand{\equationname}{Equation} % 公式
+% \renewcommand{\listingscaption}{Code} % 源码
+
+
+% 标题编号与章绑定
+% \numberwithin{table}{section} % 表
+% \numberwithin{figure}{section} % 图
+% \numberwithin{equation}{section}  % 公式
+% \numberwithin{listing}{section} % 源码
+
+
+% 标题编号与章解除绑定
+% \counterwithout{table}{section} % 表
+% \counterwithout{figure}{section} % 图
+% \counterwithout{equation}{section} % 公式
+% \counterwithout{listing}{section} % 源码
+
+
+% 标题编号格式
+% \renewcommand{\thetable}{\arabic{section}-\arabic{table}} % 表
+% \renewcommand{\thefigure}{\arabic{section}-\arabic{figure}} % 图
+% \renewcommand{\theequation}{\arabic{section}-\fnsymbol{equation}} % 公式
+% \renewcommand{\thelisting}{\arabic{section}-\arabic{listing}} % 源码
+
+
+
+
+
+% 引用格式
+%%% 页
+\newcommand{\reffmttitle}[2]{第 \ref{#1} #2}
+\newcommand{\reffmtitem}[2]{#1 \ref{#2}}
+\newcommand{\refthename}[1]{\nameref{#1}}
+\newcommand{\refpage}[1]{第 \pageref{#1} 页}
+%%% 卷(part)
+\newcommand{\refpartnum}[1]{\reffmttitle{part:#1}{卷}}
+\newcommand{\refpartname}[1]{\refthename{part:#1}}
+\newcommand{\refpartpage}[1]{\refpage{part:#1}}
+%%% 章(chapter)
+\newcommand{\refchapnum}[1]{\reffmttitle{chap:#1}{章}}
+\newcommand{\refchapname}[1]{\refthename{chap:#1}}
+\newcommand{\refchappage}[1]{\refpage{chap:#1}}
+%%% 节(section)
+\newcommand{\refsecnum}[1]{\reffmttitle{sec:#1}{节}}
+\newcommand{\refsecname}[1]{\refthename{sec:#1}}
+\newcommand{\refsecpage}[1]{\refpage{sec:#1}}
+%%% 小节(subsection)
+\newcommand{\refsubsecnum}[1]{\reffmttitle{subsec:#1}{小节}}
+\newcommand{\refsubsecname}[1]{\refthename{subsec:#1}}
+\newcommand{\refsubsecpage}[1]{\refpage{subsec:#1}}
+%%% 小小节(subsubsection)
+\newcommand{\refsubsubsecnum}[1]{\reffmttitle{subsubsec:#1}{小小节}}
+\newcommand{\refsubsubsecname}[1]{\refthename{subsubsec:#1}}
+\newcommand{\refsubsubsecpage}[1]{\refpage{subsubsec:#1}}
+%%% 脚注(footnote)
+\newcommand{\reffnnum}[1]{\reffmtitem{注}{fn:#1}}
+\newcommand{\reffnname}[1]{\refthename{fn:#1}}
+\newcommand{\reffnpage}[1]{\refpage{fn:#1}}
+%%% 图(figure)
+\newcommand{\reffignum}[1]{\reffmtitem{图}{fig:#1}}
+\newcommand{\reffigname}[1]{\refthename{fig:#1}}
+\newcommand{\reffigpage}[1]{\refpage{fig:#1}}
+%%% 表(table)
+\newcommand{\reftabnum}[1]{\reffmtitem{表}{tab:#1}}
+\newcommand{\reftabname}[1]{\refthename{tab:#1}}
+\newcommand{\reftabpage}[1]{\refpage{tab:#1}}
+%%% 项(item)
+\newcommand{\refitemnum}[1]{\reffmtitem{项}{item:#1}}
+\newcommand{\refitemname}[1]{\refthename{item:#1}}
+\newcommand{\refitempage}[1]{\refpage{item:#1}}
+%%% 公式(equation)
+\newcommand{\refeqnum}[1]{式 (\ref{eq:#1})}
+\newcommand{\refeqname}[1]{\refthename{eq:#1}}
+\newcommand{\refeqpage}[1]{\refpage{eq:#1}}
+%%% 定理(theorem)
+\newcommand{\refthmnum}[1]{\reffmtitem{定理}{thm:#1}}
+\newcommand{\refthmname}[1]{\refthename{thm:#1}}
+\newcommand{\refthmpage}[1]{\refpage{thm:#1}}
+%%% 算法(algorithm)
+\newcommand{\refalgonum}[1]{\reffmtitem{算法}{algo:#1}}
+\newcommand{\refalgoname}[1]{\refthename{algo:#1}}
+\newcommand{\refalgopage}[1]{\refpage{algo:#1}}
+%%% 源码(code)
+\newcommand{\reflstnum}[1]{\reffmtitem{源码}{lst:#1}}
+\newcommand{\reflstname}[1]{\refthename{lst:#1}}
+\newcommand{\reflstpage}[1]{\refpage{lst:#1}}
+
+
+
+
+
+% 文献数据库
+% \bibliography{}  % 待加入的数据库
+% 文献格式
+% | 格式  | 字母编号 | 条目排序 | 排序方式         | 缩写人名 | 月份全称 | 期刊全称 |
+% | plain | NO       | YES      | 作者、日期、标题 | NO       | YES      | YES      |
+% | unsrt | NO       | NO       |                  | NO       | YES      | YES      |
+% | alpha | YES      | YES      | 作者             | NO       | YES      | YES      |
+% | abbrv | NO       | YES      | 作者、日期、标题 | YES      | NO       | NO       |
+% \bibliographystyle{unsrt}
+
+
+
+
+
+% 色彩设置
+%%% 网站
+%%%%% \LaTeX Color: http://latexcolor.com/
+%%%%% 中国色: http://zhongguose.com/
+%%%%% 日本色: http://nipponcolors.com/
+%%% 语法
+% \definecolor{\name}{gray}{\var}  % 灰度, 0~1
+% \definecolor{\name}{rgb}{\var,\var,\var}  % red/green/blue (0~1)
+% \definecolor{\name}{RGB}{\var,\var,\var}  % RED/GREEN/BLUE (0~255)
+% \definecolor{\name}{HTML}{\var\var\var}  % RED/GREEN/BLUE (00-FF)
+% \definecolor{\name}{cmyk}{\var,\var,\var,\var}  % cyan/magenta/yellow/black (0~1)
+\definecolor{FENGYEHONG}{RGB}{194,31,48}  % 枫叶红
+\definecolor{GANLANSHILV}{RGB}{178,207,135}  % 橄榄石绿
+\definecolor{GULAN}{RGB}{26,148,188}  % 钴蓝
+\definecolor{HUPOHUANG}{RGB}{254,186,7}  % 琥珀黄
+\definecolor{MIZUASAGI}{RGB}{102,186,183}  % 水浅葱
+\definecolor{OUCHI}{RGB}{155,144,194}  % 楝
+\definecolor{QIANHUI}{RGB}{218,212,203}  % 浅灰
+\definecolor{SAKURA}{RGB}{254,223,225}  % 桜
+\definecolor{YINHUI}{RGB}{145,128,114}  % 银灰
+
+
+
+
+
+% hyper 设置
+\hypersetup{
+    pdfstartview=FitH,  % 缩放大小: Fit(适合页面), FitH(适合宽度), FitV(适合高度)
+    CJKbookmarks=true,  % 生成书签
+    bookmarksnumbered=true,  % 书签带编号
+    bookmarksopen=false,  % 自动打开书签
+    colorlinks=false,  % 启用链接颜色
+    pdfborder=000,  % 链接边框
+    linkcolor=black,  % 内部链接, 黑色
+    anchorcolor=FENGYEHONG,  % 锚文本, 枫叶红
+    citecolor=GANLANSHILV,  % 文献引用链接, 橄榄石绿
+    filecolor=HUPOHUANG,  % 文件链接, 琥珀黄
+    menucolor=MIZUASAGI,  % 菜单链接, 水浅葱
+    runcolor=SAKURA,  % 运行注释链接, 桜
+    urlcolor=OUCHI,  % URL链接, 楝
+    % pdftitle={Title},  % 文档标题
+    % pdfauthor={Author},  % 文档作者
+    % pdfsubject={Subject}, % 文档主题
+    % pdfkeywords={Keyword}, %文档关键字
+}

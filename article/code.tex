@@ -1,0 +1,171 @@
+% 导入包
+\usepackage{color,xcolor}  % 色彩
+\usepackage{xparse} % 参数解析
+\usepackage{accsupp} % PDF1.5 功能支持
+\usepackage{caption}
+\usepackage{minted}
+\usepackage{calc}
+\usepackage[most, breakable,skins]{tcolorbox}
+
+\tcbuselibrary{xparse, minted}  %tcb加载包
+
+
+% 行号样式
+\NewDocumentCommand{\SetFancyVerbLine}{m}{
+  \renewcommand{\theFancyVerbLine}{
+    \protect\BeginAccSupp{ActualText={}}\sffamily\textcolor{#1}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}\protect\EndAccSupp{}
+  }
+}
+% 基础样式
+\tcbset{
+  base-code-style/.style={
+    frame empty,
+    enhanced jigsaw,
+    drop fuzzy shadow,
+    breakable, % 可跨页
+    center, % 居中
+    width=\linewidth, % 宽度100%行宽
+    bottom=1mm, top=1mm, left=6mm,
+    fonttitle = \bfseries,
+    listing only,
+    listing engine=minted,
+    minted options={
+      samepage=nil, % 不跨页
+      encoding=utf8, % 编码: UTF-8
+      fontsize = \small,
+      mathescape=t, % \LaTeX 数学公式
+      escapeinside =, % 逃逸字符对
+      autogobble=t, % 取消前置空白
+      breaklines=nil, % 自动换行
+      breakautoindent=t, % 换行自动缩进
+      tabsize=4, % Tab等于的空格数
+      linenos=t, % 行号
+      numbersep=3pt,
+      numbers=left, % 行号的位置left | right | both | none
+      numberblanklines=t, % 空行编号
+      firstline=1, % 设置首行
+      firstnumber=1, % 设置首行行号
+      %lastline=, % 设置最后一行
+      codetagify={"XXX TODO DONE NOTE BUG"},
+      showspaces=nil, % 显示空格
+      space=\textvisiblespace, % only showspaces=true
+      obeytabs=nil, % tab不替换空格
+      showtabs=nil, % 显示tab
+    },
+  }
+}
+% 主题
+%%% solarized-light
+\definecolor{solarized-light-background}{HTML}{FDF6E3}
+\definecolor{solarized-light-frame}{HTML}{EEE8D6}
+\definecolor{solarized-light-title}{HTML}{979797}
+\definecolor{solarized-light-lineno}{HTML}{237D99}
+\tcbset{
+  solarized-light/.style={
+    colback=solarized-light-background,
+    colframe=solarized-light-frame,
+    coltitle=solarized-light-title,
+    minted style=solarized-light,
+  }
+}
+%%% solarized-drak
+\definecolor{solarized-dark-background}{HTML}{002B36}
+\definecolor{solarized-dark-frame}{HTML}{073642}
+\definecolor{solarized-dark-title}{HTML}{EEE8D5}
+\definecolor{solarized-dark-lineno}{HTML}{586E75}
+\tcbset{
+  solarized-dark/.style={
+    colback=solarized-dark-background,
+    colframe=solarized-dark-frame,
+    coltitle=solarized-dark-title,
+    minted style=solarized-dark,
+  }
+}
+%%% monokai
+\definecolor{monokai-background}{HTML}{272822}
+\definecolor{monokai-frame}{HTML}{49483E}
+\definecolor{monokai-title}{HTML}{F8F8F0}
+\definecolor{monokai-lineno}{HTML}{8F908A}
+\tcbset{
+  monokai/.style={
+    colback=monokai-background,
+    colframe=monokai-frame,
+    coltitle=monokai-title,
+    minted style=monokai,
+  }
+}
+%%% dracula (Pypi: pygments-style-dracula)
+\definecolor{dracula-background}{HTML}{282A36}
+\definecolor{dracula-frame}{HTML}{44475a}
+\definecolor{dracula-title}{HTML}{ccccc7}
+\definecolor{dracula-lineno}{HTML}{565761}
+\tcbset{
+  dracula/.style={
+    colback=dracula-background,
+    colframe=dracula-frame,
+    coltitle=dracula-title,
+    minted style=dracula,
+  }
+}
+%%% github (Pypi: pygments-style-github)
+\definecolor{github-background}{HTML}{FFFFFF}
+\definecolor{github-frame}{HTML}{999988}
+\definecolor{github-title}{HTML}{000000}
+\definecolor{github-lineno}{HTML}{888888}
+\tcbset{
+  github/.style={
+    colback=github-background,
+    colframe=github-frame,
+    coltitle=github-title,
+    minted style=github,
+  }
+}
+%%% tomorrow-day (Pypi: pygments-style-tomorrow)
+\definecolor{tomorrow-day-background}{HTML}{FFFFFF}
+\definecolor{tomorrow-day-frame}{HTML}{EFEFEF}
+\definecolor{tomorrow-day-title}{HTML}{4D4D4C}
+\definecolor{tomorrow-day-lineno}{HTML}{D6D6D6}
+\tcbset{
+  tomorrow-day/.style={
+    colback=tomorrow-day-background,
+    colframe=tomorrow-day-frame,
+    coltitle=tomorrow-day-title,
+    minted style=tomorrow-day,
+  }
+}
+%%% tomorrow-night (Pypi: pygments-style-tomorrow)
+\definecolor{tomorrow-night-background}{HTML}{1d1f21}
+\definecolor{tomorrow-night-frame}{HTML}{282a2e}
+\definecolor{tomorrow-night-title}{HTML}{c5c8c6}
+\definecolor{tomorrow-night-lineno}{HTML}{373b41}
+\tcbset{
+  tomorrow-night/.style={
+    colback=tomorrow-night-background,
+    colframe=tomorrow-night-frame,
+    coltitle=tomorrow-night-title,
+    minted style=tomorrow-night,
+  }
+}
+% 环境
+\NewDocumentEnvironment{sourcecode}{O{}m!o}{
+  \IfNoValueTF{#3}{\SetFancyVerbLine{black}}{\SetFancyVerbLine{#3-lineno}}
+  \tcblisting{
+    title={#1},
+    minted language=#2,
+    \IfNoValueF{#3}{#3},
+    base-code-style,
+  }
+}{
+  \endtcblisting
+}
+\NewDocumentCommand{\inputcode}{O{}mom}{
+  \IfNoValueTF{#3}{\SetFancyVerbLine{black}}{\SetFancyVerbLine{#3-lineno}}
+  \tcbinputlisting{
+    title={#1},
+    minted language=#2,
+    \IfNoValueF{#3}{#3},
+    listing file={#4},
+    base-code-style,
+  }
+}
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
