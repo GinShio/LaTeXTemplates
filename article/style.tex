@@ -26,13 +26,12 @@
 \usepackage{graphicx}  % 插图
 \usepackage{lscape}  % 页面旋转
 %%% 定理
-\usepackage{natbib}  % 文献格式
 \usepackage{enumerate}  % 列表格式, P105
 \usepackage{theorem}  % 定理格式, P107
 %%% 算法
 \usepackage[ruled]{algorithm2e}
 %%% 参考文献
-\usepackage{cite}
+\usepackage[style=ieee,backend=biber,natbib=true]{biblatex}
 %%% 绘图
 \usepackage[all,pdf]{xy}
 \usepackage{tikz}
@@ -87,10 +86,10 @@
 % \setmainfont{Times New Roman}
 % \setmainfont{Courier New}
 %%% 中文字体
-\setCJKmainfont{Source Han Serif CN}  % 思源宋体
-% \setCJKmainfont{Source Han Sans CN}  % 思源黑体
-% \setCJKmainfont{Source Han Sans HW SC}  % 思源黑体等宽
-% \setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}  % 宋体
+% \setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun} % 中易
+% \setCJKmainfont[BoldFont=FZHei-B01,ItalicFont=FZKai-Z03]{FZShuSong-Z01}  % 方正
+% \setCJKmainfont[BoldFont=Source Han Sans CN]{Source Han Serif CN}  % 思源
+% \setCJKmainfont[BoldFont=FandolHei,ItalicFont=FandolKai]{FandolSong}  % Fandol
 
 
 
@@ -161,17 +160,6 @@
 % \renewcommand{\listoflistingscaption}{Code Contents} % 源码目录名称
 % \renewcommand{\refname}{Reference}  % 修改参考文献名称
 % \renewcommand{\abstractname}{Abstract}  % 修改摘要名称
-
-
-% 生成 contents 与 title (in document)
-%%% Roman(大写罗马数字), roman(小写罗马数字), arabic(数字), Alph(大写字母), alph(小写字母), fnsymbol(符号)
-% \pagenumbering{arabic} % 页码格式
-% \tableofcontents % 目录
-% \listoftables % 表目录
-% \listoffigures % 图目录
-% \listoflistings % 代码目录
-% \newpage
-% \pagenumbering{Roman}
 
 
 
@@ -282,15 +270,9 @@
 
 
 
-% 文献数据库
-% \bibliography{}  % 待加入的数据库
-% 文献格式
-% | 格式  | 字母编号 | 条目排序 | 排序方式         | 缩写人名 | 月份全称 | 期刊全称 |
-% | plain | NO       | YES      | 作者、日期、标题 | NO       | YES      | YES      |
-% | unsrt | NO       | NO       |                  | NO       | YES      | YES      |
-% | alpha | YES      | YES      | 作者             | NO       | YES      | YES      |
-% | abbrv | NO       | YES      | 作者、日期、标题 | YES      | NO       | NO       |
-% \bibliographystyle{unsrt}
+% 文献
+\addbibresource{~/org/reference/ref.bib} % 文献数据库
+\nocite{} % 最小目录
 
 
 
