@@ -96,8 +96,8 @@
 }
 %%% dracula (Pypi: pygments-style-dracula)
 \definecolor{dracula-background}{HTML}{282A36}
-\definecolor{dracula-frame}{HTML}{44475a}
-\definecolor{dracula-title}{HTML}{ccccc7}
+\definecolor{dracula-frame}{HTML}{44475A}
+\definecolor{dracula-title}{HTML}{CCCCC7}
 \definecolor{dracula-lineno}{HTML}{565761}
 \tcbset{
   dracula/.style={
@@ -134,16 +134,42 @@
   }
 }
 %%% tomorrow-night (Pypi: pygments-style-tomorrow)
-\definecolor{tomorrow-night-background}{HTML}{1d1f21}
-\definecolor{tomorrow-night-frame}{HTML}{282a2e}
-\definecolor{tomorrow-night-title}{HTML}{c5c8c6}
-\definecolor{tomorrow-night-lineno}{HTML}{373b41}
+\definecolor{tomorrow-night-background}{HTML}{1D1F21}
+\definecolor{tomorrow-night-frame}{HTML}{282A2E}
+\definecolor{tomorrow-night-title}{HTML}{C5C8C6}
+\definecolor{tomorrow-night-lineno}{HTML}{373B41}
 \tcbset{
   tomorrow-night/.style={
     colback=tomorrow-night-background,
     colframe=tomorrow-night-frame,
     coltitle=tomorrow-night-title,
     minted style=tomorrow-night,
+  }
+}
+%%% spacemacs-light (Pypi: pygments-style-spacemacs)
+\definecolor{spacemacs-light-background}{HTML}{FBF8EF}
+\definecolor{spacemacs-light-frame}{HTML}{E2E0EA}
+\definecolor{spacemacs-light-title}{HTML}{8C799F}
+\definecolor{spacemacs-light-lineno}{HTML}{A8A8BF}
+\tcbset{
+  spacemacs-light/.style={
+    colback=spacemacs-light-background,
+    colframe=spacemacs-light-frame,
+    coltitle=spacemacs-light-title,
+    minted style=spacemacs-light,
+  }
+}
+%%% spacemacs-dark (Pypi: pygments-style-spacemacs)
+\definecolor{spacemacs-dark-background}{HTML}{292B2E}
+\definecolor{spacemacs-dark-frame}{HTML}{34323E}
+\definecolor{spacemacs-dark-title}{HTML}{9A9ABA}
+\definecolor{spacemacs-dark-lineno}{HTML}{44505C}
+\tcbset{
+  spacemacs-dark/.style={
+    colback=spacemacs-dark-background,
+    colframe=spacemacs-dark-frame,
+    coltitle=spacemacs-dark-title,
+    minted style=spacemacs-dark,
   }
 }
 % 环境

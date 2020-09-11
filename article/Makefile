@@ -7,7 +7,7 @@ LATEXMK=latexmk
 LATEXMKOPT=-pdf -pvc -use-make -view=none -bibtex
 LATEXMKCLEAN=-c
 
-RMFILES=_minted-*/ *.listing *.synctex.gz *.thm *.bbl *.run.xml
+RMFILES=.auctex-auto/ _minted-*/ *.listing *.synctex.gz *.thm *.bbl *.run.xml
 
 .PHONY: all one debug clean
 
