@@ -24,5 +24,5 @@ debug:
 	$(LATEX) $(LATEXOPT) $(LATEXDEBUG) $(ARG)
 
 clean:
-	$(LATEXMK) $(LATEXMKCLEAN)
+	$(LATEXMK) -c $(ARG)
 	-rm -rf $(RMFILES)
